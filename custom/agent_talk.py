@@ -2,6 +2,7 @@ from letta_client import Letta
 from letta_client import Letta, MessageCreate, TextContent
 
 client = Letta(base_url="http://localhost:8283")  
+# client = Letta(base_url="https://app.letta.com:8283")  
 
 for agent in client.agents.list():
     print(agent.name)
@@ -26,7 +27,7 @@ response = client.agents.messages.create(
             role="user",
             content=[
                 TextContent(
-                    text="Найди в архивной памяти информацию о Диадохе Блаженном",
+                    text="Почему в христианстве животных убивать можно, а человека нельзя? Search archival.",
                 )
             ],
         )

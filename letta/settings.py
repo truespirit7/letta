@@ -84,6 +84,9 @@ class ModelSettings(BaseSettings):
     # deepseek
     deepseek_api_key: Optional[str] = None
 
+    # mistral
+    mistral_api_key: Optional[str] = None
+    
     # xAI / Grok
     xai_api_key: Optional[str] = None
 

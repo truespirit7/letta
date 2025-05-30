@@ -9,6 +9,7 @@ from letta.schemas.providers import (
     GroqProvider,
     OpenAIProvider,
     TogetherProvider,
+    MistralProvider
 )
 from letta.settings import model_settings
 
@@ -50,6 +51,11 @@ def test_deepseek():
     assert len(models) > 0
     assert models[0].handle == f"{provider.name}/{models[0].model}"
 
+def test_mistral():
+    provider = MistralProvider(name="mistral", api_key=model_settings.mistral_api_key)
+    models = provider.list_llm_models()
+    assert len(models) > 0
+    assert models[0].handle == f"{provider.name}/{models[0].model}"
 
 def test_anthropic():
     provider = AnthropicProvider(

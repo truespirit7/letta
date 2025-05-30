@@ -71,6 +71,7 @@ from letta.schemas.providers import (
     VLLMChatCompletionsProvider,
     VLLMCompletionsProvider,
     XAIProvider,
+    MistralProvider,
 )
 from letta.schemas.sandbox_config import LocalSandboxConfig, SandboxConfigCreate, SandboxType
 from letta.schemas.source import Source
@@ -305,6 +306,13 @@ class SyncServer(Server):
                 GoogleAIProvider(
                     name="google_ai",
                     api_key=model_settings.gemini_api_key,
+                )
+            )
+        if model_settings.gemini_api_key:
+            self._enabled_providers.append(
+                MistralProvider(
+                    name="mistral",
+                    api_key=model_settings.mistral_api_key,
                 )
             )
         if model_settings.google_cloud_location and model_settings.google_cloud_project:
