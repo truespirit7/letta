@@ -65,3 +65,11 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.0.0/24
+
