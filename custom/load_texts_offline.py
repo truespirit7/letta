@@ -36,7 +36,7 @@ test_source_id = offline_client.sources.retrieve_by_name(
     
     # source_name="orthodox-texts", # online
     # source_name="test-texts",
-    source_name="30-05-25-orthodox-texts-offline",
+    source_name="31-05-25-orthodox-texts-offline-v3",
 )
 
 # загружаем файлы из папки
@@ -45,6 +45,10 @@ for file_path in test_texts_dir.iterdir():
     with open(file_path, "rb") as f:
         try:
             job_a = offline_client.sources.files.upload(source_id=test_source_id, file=f)
+            logger.error(f"UPLOAD SUCCESS: {file_path.name}")  
+            logger.error(f"UPLOAD SUCCESS: {file_path.name}")  
+            logger.error(f"UPLOAD SUCCESS: {file_path.name}")  
+
             print(f"Загружен файл:", file_path.name)
         except Exception as e:
             logger.error(f"FILE OFFLINE-UPLOAD ERROR: {file_path.name}: {e}")  
